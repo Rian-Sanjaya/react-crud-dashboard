@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { Layout, Menu } from "antd";
 import HeaderLayout from "../../components/layout/Header";
 import {
@@ -14,6 +14,15 @@ const { Header, Sider, Content } = Layout;
 
 function DefaultLayout () {
   const [collapsed, setCollapsed] = useState(false);
+  const navigate = useNavigate();
+
+  const onMenuClick = (e) => {
+    if (e.key === '1') {
+      navigate('/');
+    } else if (e.key === '2') {
+      navigate('/user');
+    }
+  }
 
   return (
     <Layout style={{ minWidth: 450 }}>
@@ -26,19 +35,20 @@ function DefaultLayout () {
         </div>
         <div className="logo" />
         <Menu
+          onClick={onMenuClick}
           theme="dark"
           mode="inline"
           defaultSelectedKeys={['1']}
           items={[
             {
               key: '1',
-              icon: <UserOutlined />,
-              label: 'nav 1',
+              icon: <VideoCameraOutlined />,
+              label: 'Komoditas',
             },
             {
               key: '2',
-              icon: <VideoCameraOutlined />,
-              label: 'nav 2',
+              icon: <UserOutlined />,
+              label: 'User',
             },
             {
               key: '3',

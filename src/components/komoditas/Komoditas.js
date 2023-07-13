@@ -248,37 +248,33 @@ function Komoditas() {
   };
 
   return (
-    <div
-      className="content-layout-container"
-    >
-      <>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <div>
-            <Search placeholder="Cari Komoditas" onSearch={onSearchKomoditas} allowClear style={{ width: 200 }} />
-          </div>
-          <div>
-            <Button type="primary" onClick={onAddComodity}>
-              <PlusOutlined />
-              Tambah Komoditas
-            </Button>
-          </div>
+    <>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div>
+          <Search placeholder="Cari Komoditas" onSearch={onSearchKomoditas} allowClear style={{ width: 200 }} />
         </div>
-        <div className="table-box">
-          <Table 
-            columns={columns} 
-            dataSource={comoditiesFiltered}
-            // onChange={onTableChange} 
-            pagination={false} 
-            showSorterTooltip={false}
-            loading={loading}
-            rowKey="uuid" 
-            scroll={{ x: 568 }}
-          />
+        <div>
+          <Button type="primary" onClick={onAddComodity}>
+            <PlusOutlined />
+            Tambah Komoditas
+          </Button>
         </div>
-        <KomoditasModal title="Tambah Komoditas" modalOpen={modalOpen} setModalOpen={setModalOpen} currentComodity={currentComodity} />
-        <DeleteComodity title="Hapus Komoditas" modalOpen={deleteOpen} setDeleteOpen={setDeleteOpen} currentComodity={currentComodity} />
-      </>
-    </div>
+      </div>
+      <div className="table-box">
+        <Table 
+          columns={columns} 
+          dataSource={comoditiesFiltered}
+          // onChange={onTableChange} 
+          pagination={false} 
+          showSorterTooltip={false}
+          loading={loading}
+          rowKey="uuid" 
+          scroll={{ x: 568 }}
+        />
+      </div>
+      <KomoditasModal title="Tambah Komoditas" modalOpen={modalOpen} setModalOpen={setModalOpen} currentComodity={currentComodity} />
+      <DeleteComodity title="Hapus Komoditas" modalOpen={deleteOpen} setDeleteOpen={setDeleteOpen} currentComodity={currentComodity} />
+    </>
   )
 }
 

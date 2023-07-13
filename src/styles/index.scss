@@ -12,7 +12,11 @@ body {
   margin-bottom: 12px;
 
   .input-label {
-    font-weight: 700;
+    font-weight: 900;
+
+    &.jenis-kelamin, &.tanggal-lahir {
+      margin-right: 16px;
+    }
   }
 
   .invalid-input {
@@ -56,6 +60,36 @@ body {
   .comodity {
     font-weight: 700;
   }
+
+  .nama {
+    font-weight: 700;
+  }
+}
+
+.detail-container {
+  .item-box {
+    margin-bottom: 16px;
+
+    .item-label {
+      font-size: 14px;
+      font-weight: 900;
+
+      &.inline {
+        margin-right: 8px;
+      }
+    }
+
+    .item-content {
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+}
+
+.action-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 // Default Layout

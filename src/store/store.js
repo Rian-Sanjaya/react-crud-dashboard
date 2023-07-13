@@ -4,6 +4,7 @@ import { headerReducer } from "./header";
 import { komoditasReducer } from "./komoditas";
 import { areasReducer } from "./area";
 import { sizesReducer } from "./size";
+import { userReducer } from "./user";
 
 const composeEnhancers = 
   (process.env.NODE_ENV !== 'production' && 
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   comodities: komoditasReducer,
   areas: areasReducer,
   sizes: sizesReducer,
+  users: userReducer,
 });
 
 export const store = createStore(
