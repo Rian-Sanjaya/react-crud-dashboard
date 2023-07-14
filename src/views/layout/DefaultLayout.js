@@ -5,12 +5,11 @@ import HeaderLayout from "../../components/layout/Header";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  UploadOutlined,
   UserOutlined,
-  VideoCameraOutlined,
   PieChartOutlined,
   MailOutlined,
   AppstoreOutlined,
+  AppleOutlined,
 } from '@ant-design/icons';
 
 const { Header, Sider, Content } = Layout;
@@ -74,7 +73,10 @@ function DefaultLayout () {
             onClick: () => setCollapsed(!collapsed),
           })}
         </div>
-        <div className="logo" />
+        <div className="logo">
+          <span style={{ fontSize: '24px', fontWeight: 900 }}><AppleOutlined /></span>
+          <span className={`label ${collapsed ? 'hide' : ''}`}>Logo</span>
+        </div>
         <Menu
           onClick={onMenuClick}
           theme="dark"
