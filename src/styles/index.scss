@@ -93,23 +93,31 @@ body {
 }
 
 // Default Layout
-.default-layout-sider .trigger {
-  padding: 0 24px;
-  font-size: 18px;
-  line-height: 64px;
-  cursor: pointer;
-  transition: color 0.3s;
-  color: #fff;
-}
+.default-layout-sider {
+  background: #0148ab;
 
-.default-layout-sider .trigger:hover {
-  color: #1890ff;
-}
+  .logo {
+    height: 32px;
+    margin: 16px;
+    background: rgba(255, 255, 255, 0.3);
+  }
 
-.default-layout-sider .logo {
-  height: 32px;
-  margin: 16px;
-  background: rgba(255, 255, 255, 0.3);
+  .trigger {
+    padding: 0 24px;
+    font-size: 18px;
+    line-height: 64px;
+    cursor: pointer;
+    transition: color 0.3s;
+    color: #fff;
+  }
+
+  .trigger:hover {
+    color: #1890ff;
+  }
+
+  .ant-menu.ant-menu-dark, .ant-menu-dark .ant-menu-sub, .ant-menu.ant-menu-dark .ant-menu-sub {
+    background: #0148ab;
+  }
 }
 
 .site-layout .site-layout-background {
