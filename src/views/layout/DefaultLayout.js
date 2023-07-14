@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { Layout, Menu } from "antd";
 import HeaderLayout from "../../components/layout/Header";
 import {
@@ -13,13 +13,25 @@ import {
 const { Header, Sider, Content } = Layout;
 
 function DefaultLayout () {
-  const [collapsed, setCollapsed] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  const [collapsed, setCollapsed] = useState(false);
+  const [currentMenu, setCurrentMenu] = useState(location.pathname)
+
+  useEffect(() => {
+    if (location) {
+      if (currentMenu !== '/nav_3' && currentMenu !== location.pathname) {
+        setCurrentMenu(location.pathname)
+      }
+    }
+  }, [location, currentMenu])
 
   const onMenuClick = (e) => {
-    if (e.key === '1') {
+    setCurrentMenu(e.key);
+
+    if (e.key === '/') {
       navigate('/');
-    } else if (e.key === '2') {
+    } else if (e.key === '/user') {
       navigate('/user');
     }
   }
@@ -38,20 +50,21 @@ function DefaultLayout () {
           onClick={onMenuClick}
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={['1']}
+          defaultSelectedKeys={['/']}
+          selectedKeys={[currentMenu]}
           items={[
             {
-              key: '1',
+              key: '/',
               icon: <VideoCameraOutlined />,
               label: 'Komoditas',
             },
             {
-              key: '2',
+              key: '/user',
               icon: <UserOutlined />,
               label: 'User',
             },
             {
-              key: '3',
+              key: '/nav_3',
               icon: <UploadOutlined />,
               label: 'nav 3',
             },
