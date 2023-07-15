@@ -105,7 +105,7 @@ function DefaultLayout () {
       </Sider>
       <Layout className="site-layout">
         <Header
-          style={{ position: "fixed", zIndex: 1, width: "100%", background: "#fff" }}
+          style={{ position: "fixed", zIndex: 1, width: "calc(100% - 200px)", background: "#fff" }}
         >
           <HeaderLayout />
         </Header>
