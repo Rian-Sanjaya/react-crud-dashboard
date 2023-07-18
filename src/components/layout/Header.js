@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
 import { getTitle } from "../../store/header";
 import avatar from "../../assets/images/header/avatar.png";
 import { ExportOutlined } from '@ant-design/icons';
@@ -28,6 +29,7 @@ const useOutsideClick = (callback) => {
 function Header() {
   const title = useSelector(getTitle);
   const [showLogout, setShowLogout] = useState(false);
+  const navigate = useNavigate();
 
   const handleClickOutside = () => {
     if (showLogout) {
@@ -39,7 +41,10 @@ function Header() {
   const ref = useOutsideClick(handleClickOutside);
 
   const handleLogoutClick = (event) => {
+    console.log('logout')
+    // event.stopPropagation();
     setShowLogout(false);
+    navigate('/login')
     event.stopPropagation();
   };
 
@@ -68,7 +73,7 @@ function Header() {
             <div className="avatar-menu" style={{ position: 'absolute', top: '68px', width: '100%' }}>
               <ul style={{ background: '#fff', borderRadius: '4px', boxShadow: 'rgba(76, 79, 84, 0.16) 0px 4px 8px' }}>
                 <li className="logout-context-menu">
-                  <div style={{ lineHeight: '14px' }} onClick={(e) => handleLogoutClick(e)}>
+                  <div style={{ lineHeight: '14px' }} onClick={handleLogoutClick}>
                     <ExportOutlined /> 
                     <span style={{ marginLeft: '4px' }}>Log out</span>
                   </div>
