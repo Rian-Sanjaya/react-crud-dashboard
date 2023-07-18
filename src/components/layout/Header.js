@@ -2,16 +2,52 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { getTitle } from "../../store/header";
 import avatar from "../../assets/images/header/avatar.png";
+import { ExportOutlined } from '@ant-design/icons';
+import "./header.scss";
+
+const useOutsideClick = (callback) => {
+  const ref = React.useRef();
+
+  React.useEffect(() => {
+    const handleClick = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        callback();
+      }
+    };
+
+    document.addEventListener('click', handleClick, true);
+
+    return () => {
+      document.removeEventListener('click', handleClick, true);
+    };
+  }, [ref, callback]);
+
+  return ref;
+};
 
 function Header() {
   const title = useSelector(getTitle);
   const [showLogout, setShowLogout] = useState(false);
 
+  const handleClickOutside = () => {
+    if (showLogout) {
+      // alert('click outside');
+      setShowLogout(false);
+    }
+  };
+
+  const ref = useOutsideClick(handleClickOutside);
+
+  const handleLogoutClick = (event) => {
+    setShowLogout(false);
+    event.stopPropagation();
+  };
+
   return (
     <div className="layout-header-box">
       <div className="title">{ title }</div>
       <div className="avatar-box" style={{ display: 'flex', position: 'relative' }}>
-        <div className="name-container" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div className="name-container" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', marginRight: '16px' }}>
           <div className="av-name" style={{ lineHeight: '14px' }}>
             John Doe
           </div>
@@ -19,15 +55,23 @@ function Header() {
             Admin
           </div>
         </div>
-        <div className="avatar-box" style={{ width: '64px', cursor: 'pointer' }} onClick={ () => setShowLogout(!showLogout)}>
+        <div
+          className="avatar-box"
+          style={{ width: '40px', cursor: 'pointer' }}
+          onClick={ () => setShowLogout(!showLogout)}
+          ref={ref}
+        >
           <img src={avatar} alt="avatar" style={{ width: '100%', height: 'auto' }} />
         </div>
         {
           showLogout && 
             <div className="avatar-menu" style={{ position: 'absolute', top: '68px', width: '100%' }}>
-              <ul style={{ border: '1px solid', borderRadius: '4px' }}>
-                <li>
-                  <div style={{ lineHeight: '14px', cursor: 'pointer' }}>Log out</div>
+              <ul style={{ background: '#fff', borderRadius: '4px', boxShadow: 'rgba(76, 79, 84, 0.16) 0px 4px 8px' }}>
+                <li className="logout-context-menu">
+                  <div style={{ lineHeight: '14px' }} onClick={(e) => handleLogoutClick(e)}>
+                    <ExportOutlined /> 
+                    <span style={{ marginLeft: '4px' }}>Log out</span>
+                  </div>
                 </li>
               </ul>
             </div>
