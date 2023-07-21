@@ -1,0 +1,49 @@
+.login-container {
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  background: #e2eaf4;
+
+  .login-form-box {
+    width: 35%;
+    max-width: 480px;
+    min-width: 300px;
+    height: 300px;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: rgba(76, 79, 84, 0.16) 0px 4px 8px;
+    margin-top: 160px;
+    background: #fff;
+
+    .login-form {
+      .login-form-remember {
+        float: left;
+      }
+
+      .login-form-forgot {
+        float: right;
+      }
+
+      .login-form-button {
+        width: 100%;
+      }
+
+      .login-form-forgot, .login-form-register {
+        background: transparent;
+        border: none;
+        color: #1677ff;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+// @media (max-width: 640px) {
+//   .login-container {
+//     align-items: center;
+
+//     .login-form-box {
+//       margin-top: unset;
+//     }
+//   }
+// }

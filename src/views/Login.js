@@ -2,7 +2,7 @@ import Login from "../components/login/Login";
 
 function LoginView() {
   return (
-    <div>
+    <div style={{ height: 'inherit' }}>
       <Login />
     </div>
   )

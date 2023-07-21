@@ -11,7 +11,8 @@ const useOutsideClick = (callback) => {
 
   React.useEffect(() => {
     const handleClick = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
+      // prevent its own element and log out
+      if (ref.current && !ref.current.contains(event.target) && event.target.innerText !== 'Log out') {
         callback();
       }
     };
@@ -33,7 +34,6 @@ function Header() {
 
   const handleClickOutside = () => {
     if (showLogout) {
-      // alert('click outside');
       setShowLogout(false);
     }
   };
@@ -41,8 +41,6 @@ function Header() {
   const ref = useOutsideClick(handleClickOutside);
 
   const handleLogoutClick = (event) => {
-    console.log('logout')
-    // event.stopPropagation();
     setShowLogout(false);
     navigate('/login')
     event.stopPropagation();
