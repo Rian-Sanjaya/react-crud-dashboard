@@ -42,6 +42,7 @@ function Header() {
 
   const handleLogoutClick = (event) => {
     setShowLogout(false);
+    localStorage.removeItem('accessToken')
     navigate('/login')
     event.stopPropagation();
   };

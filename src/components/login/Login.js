@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { v4 as uuidv4} from 'uuid';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input } from 'antd';
 import "./login.scss";
@@ -8,7 +9,7 @@ function Login() {
   const navigate = useNavigate();
 
   const onFinish = (values) => {
-    console.log('Received values of form: ', values);
+    localStorage.setItem('accessToken', uuidv4())
     navigate('/');
   };
 
@@ -54,7 +55,7 @@ function Login() {
               <Checkbox>Remember me</Checkbox>
             </Form.Item>
 
-            <button className="login-form-forgot">
+            <button type="button" className="login-form-forgot">
               Forgot password
             </button>
           </Form.Item>
@@ -63,7 +64,7 @@ function Login() {
             <Button type="primary" htmlType="submit" className="login-form-button">
               Log in
             </Button>
-            Or <button className="login-form-register">register now!</button>
+            Or <button type="button" className="login-form-register">register now!</button>
           </Form.Item>
         </Form>
       </div>
