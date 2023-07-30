@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { PublicRoute, ProtectedRoute } from '../helper/authFunctions';
 import DefaultLayout from './layout/DefaultLayout';
 import Komoditas from './Komoditas';
 import User from './User';
@@ -9,10 +10,12 @@ function App () {
     <>
       <Routes>
         <Route element={<DefaultLayout />}>
-          <Route path="/" element={<Komoditas />} />
-          <Route path="/user" element={<User />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/" element={<Komoditas />} />
+            <Route path="/user" element={<User />} />
+          </Route>
         </Route>
-        <Route  path="/login" element={<Login />} />
+        <Route  path="/login" element={<PublicRoute><Login /></PublicRoute>} />
       </Routes>
     </>
   );

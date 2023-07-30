@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { v4 as uuidv4} from 'uuid';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input } from 'antd';
@@ -7,10 +7,14 @@ import "./login.scss";
 
 function Login() {
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const onFinish = (values) => {
+  const onLogin = (values) => {
     localStorage.setItem('accessToken', uuidv4())
-    navigate('/');
+    // get the last page (location) path before logout (set in logout page)
+    const origin = location.state?.from?.pathname || '/';
+    // navigate('/');
+    navigate(origin);
   };
 
   return (
@@ -22,7 +26,7 @@ function Login() {
           initialValues={{
             remember: true,
           }}
-          onFinish={onFinish}
+          onFinish={onLogin}
         >
           <Form.Item
             name="username"
