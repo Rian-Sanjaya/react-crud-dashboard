@@ -1,6 +1,6 @@
 ## Untuk melihat demo
 
-[CRUD Dashboard](https://rian-sanjaya.github.io/react-crud-dashboard)
+[CRUD Dashboard](https://fanciful-halva-d3c2f0.netlify.app/)
 
 ## Dbuat dengan mengunakan React 
 
