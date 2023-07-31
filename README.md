@@ -1,10 +1,10 @@
 ## Untuk melihat demo
 
-[CRUD Dashboard](https://comforting-bombolone-5e855a.netlify.app/)
+[CRUD Dashboard](https://rian-sanjaya.github.io/react-crud-dashboard)
 
 ## Dbuat dengan mengunakan React 
 
-Applikasi web untuk melihat, menambahkan, mengubah dan menghapus komoditas.
+Applikasi web dashboard untuk melihat, menambahkan, mengubah dan menghapus komoditas dan user.
 
 Fitur:
 
@@ -25,7 +25,7 @@ Fitur:
 **Clone project:**
 
 ```bash
-$ git clone https://github.com/Rian-Sanjaya/efishery-tech-test.git
+$ git clone https://github.com/Rian-Sanjaya/react-crud-dashboard
 ```
 
 **Install package:**
