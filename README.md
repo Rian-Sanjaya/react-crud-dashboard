@@ -1,6 +1,6 @@
 ## Untuk melihat demo
 
-[eFishery Engineer Task](https://comforting-bombolone-5e855a.netlify.app/)
+[CRUD Dashboard](https://comforting-bombolone-5e855a.netlify.app/)
 
 ## Dbuat dengan mengunakan React 
 
