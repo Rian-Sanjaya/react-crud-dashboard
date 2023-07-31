@@ -1,7 +1,6 @@
 {
   "name": "react-crud-dashboard",
   "version": "0.1.0",
-  "homepage": "https://rian-sanjaya.github.io/react-crud-dashboard",
   "private": true,
   "scripts": {
     "start-ori": "react-scripts start",
@@ -10,9 +9,7 @@
     "eject": "react-scripts eject",
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "test": "react-app-rewired test"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
@@ -33,7 +30,6 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "gh-pages": "^5.0.0",
     "less": "^4.1.3",
     "less-loader": "^11.0.0",
     "react-app-rewired": "^2.2.1",
