@@ -99,46 +99,50 @@ ul, li {
 }
 
 // Default Layout
-.default-layout-sider {
+.ant-layout-sider {
   background: #0148ab;
 
-  .logo {
-    display: flex;
-    align-items: center;
-    height: 32px;
-    margin: 16px;
-    // background: rgba(255, 255, 255, 0.3);
-    color: #fff;
+  &.default-layout-sider {
+    background: #0148ab;
 
-    .label {
-      font-size: 24px;
-      line-height: 24px;
-      font-weight: 900;
-      margin-left: 16px;
-      opacity: 1;
-      transition: opacity 0.5s ease;
+    .logo {
+      display: flex;
+      align-items: center;
+      height: 32px;
+      margin: 16px;
+      // background: rgba(255, 255, 255, 0.3);
+      color: #fff;
 
-      &.hide {
-        opacity: 0;
+      .label {
+        font-size: 24px;
+        line-height: 24px;
+        font-weight: 900;
+        margin-left: 16px;
+        opacity: 1;
+        transition: opacity 0.5s ease;
+
+        &.hide {
+          opacity: 0;
+        }
       }
     }
-  }
 
-  .trigger {
-    padding: 0 24px;
-    font-size: 18px;
-    line-height: 64px;
-    cursor: pointer;
-    transition: color 0.3s;
-    color: #fff;
-  }
+    .trigger {
+      padding: 0 24px;
+      font-size: 18px;
+      line-height: 64px;
+      cursor: pointer;
+      transition: color 0.3s;
+      color: #fff;
+    }
 
-  .trigger:hover {
-    color: #1890ff;
-  }
+    .trigger:hover {
+      color: #1890ff;
+    }
 
-  .ant-menu.ant-menu-dark, .ant-menu-dark .ant-menu-sub, .ant-menu.ant-menu-dark .ant-menu-sub {
-    background: #0148ab;
+    .ant-menu.ant-menu-dark, .ant-menu-dark .ant-menu-sub, .ant-menu.ant-menu-dark .ant-menu-sub {
+      background: #0148ab;
+    }
   }
 }
 
