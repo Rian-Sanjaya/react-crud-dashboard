@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-crud-dashboard/static/css/main.6cf1080f.css",
+    "main.js": "/react-crud-dashboard/static/js/main.33818cbf.js",
+    "index.html": "/react-crud-dashboard/index.html",
+    "main.6cf1080f.css.map": "/react-crud-dashboard/static/css/main.6cf1080f.css.map",
+    "main.33818cbf.js.map": "/react-crud-dashboard/static/js/main.33818cbf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6cf1080f.css",
+    "static/js/main.33818cbf.js"
+  ]
+}
