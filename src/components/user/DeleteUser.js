@@ -1,6 +1,6 @@
 import { Modal, Button} from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteUser, getLoading } from "../../store/user";
+import { deleteUser, getLoading } from "../../store/features/user/userSlice";
 
 function DeleteUser({ title, modalOpen, setDeleteOpen, currentUser }) {
   const loading = useSelector(getLoading);

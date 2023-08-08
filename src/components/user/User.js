@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import { titleChanged } from '../../store/header';
-import { getUsers, getLoading, fetchUsers } from '../../store/user';
+import { titleChanged } from '../../store/features/header/headerSlice';
+import { getUsers, getLoading, fetchUsers } from '../../store/features/user/userSlice';
 import moment from "moment";
 import { Button, Table, Space, Input } from "antd";
 import { PlusOutlined, EyeOutlined, FormOutlined, DeleteOutlined } from "@ant-design/icons";
@@ -101,7 +101,7 @@ function User () {
   ];
 
   useEffect(() => {
-    // dispatch(titleChanged("User"));
+    dispatch(titleChanged("User"));
     dispatch(fetchUsers());
   }, [dispatch]);
 
@@ -116,7 +116,7 @@ function User () {
       filtered = users.filter(user => user.uuid);
     }
     const usersData = filtered.map(user => {
-      const tmp = user;
+      const tmp = {...user};
       tmp.tglLahir = moment(tmp.tanggal_lahir).format("DD MMM YYYY");
       tmp.createdAt = moment(tmp.created_at).format("DD MMM YYYY hh:mm")
       return tmp;
