@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
 import moment from "moment";
-import { addUser, editUser, getLoading, getUsers } from "../../store/user";
+import { addUser, editUser, getLoading, getUsers } from "../../store/features/user/userSlice";
 import { Modal, Input, Button, Radio, DatePicker} from "antd";
 
 function UserModal({ title, modalOpen, setModalOpen, currentUser }) {

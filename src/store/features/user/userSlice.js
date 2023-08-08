@@ -1,41 +1,27 @@
-import { userStore } from "../api/api-method";
+import { userStore } from "../../../api/api-method";
+import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   users: [],
   loading: false,
 };
 
-export function userReducer(state = initialState, action) {
-  switch (action.type) {
-    case USERS_FETCH:
-      return {
-        ...state,
-        users: action.payload.users,
-      };
-    case SET_LOADING:
-      return {
-        ...state,
-        loading: action.payload,
-      };
-    default:
-      return state;
+export const userSlice = createSlice({
+  name: 'user',
+  initialState,
+  reducers: {
+    usersFetch: (state, action) => {
+      state.users = action.payload
+    },
+    setLoading: (state, action) => {
+      state.loading = action.payload
+    }
   }
-}
+})
 
 // selectors
 export const getUsers = (state) => state.users.users;
 export const getLoading = (state) => state.users.loading;
-
-// action creators
-export const usersFetch = (users) => ({
-  type: USERS_FETCH,
-  payload: { users },
-});
-
-export const setLoading = (loading) => ({
-  type: SET_LOADING,
-  payload: loading,
-});
 
 export function fetchUsers() {
   return (dispatch) => {
@@ -147,6 +133,5 @@ export function deleteUser(user) {
   }
 }
 
-// action types
-export const USERS_FETCH = "users/usersFetch";
-export const SET_LOADING = "users/setLoading";
+export const { usersFetch, setLoading } = userSlice.actions
+export default userSlice.reducer
