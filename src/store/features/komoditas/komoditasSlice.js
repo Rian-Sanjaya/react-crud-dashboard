@@ -1,60 +1,49 @@
-import { steinStore } from "../api/api-method";
+import { steinStore } from "../../../api/api-method";
+import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   comodities: [],
   loading: false,
 };
 
-export function komoditasReducer(state = initialState, action) {
-  switch (action.type) {
-    case COMODITIES_FETCH:
-      return {
-        ...state,
-        comodities: action.payload.comodities,
-      };
-    case SET_LOADING:
-      return {
-        ...state,
-        loading: action.payload,
-      };
-    default:
-      return state;
+export const komoditasSlice = createSlice({
+  name: 'komoditas',
+  initialState,
+  reducers: {
+    comoditiesFetch: (state, action) => {
+      state.comodities = action.payload
+    },
+    setLoading: (state, action) => {
+      state.loading = action.payload
+    }
   }
-}
+})
 
 // selectors
-export const getComodities = (state) => state.comodities.comodities;
-export const getLoading = (state) => state.comodities.loading;
+export const getComodities = (state) => state.comodities.comodities
+export const getLoading = (state) => state.comodities.loading
 
-// action creators
-export const comoditiesFetch = (comodities) => ({
-  type: COMODITIES_FETCH,
-  payload: { comodities },
-});
-
-export const setLoading = (loading) => ({
-  type: SET_LOADING,
-  payload: loading,
-});
-
-export function fetchComodities() {
-  return (dispatch) => {
-    return new Promise((resolve, reject) => {
-      dispatch(setLoading(true));
-      steinStore.read("list")
-        .then(res => {
-          const data = res;
-          dispatch(comoditiesFetch(data));
-          dispatch(setLoading(false));
-          resolve(data);
-        })
-        .catch(err => {
-          dispatch(setLoading(false));
-          console.error("Error: ", err);
-          reject(err);
-        });
-    });
-  };
+// action / function thunk
+// The function below is called a thunk and allows us to perform async logic. It
+// can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
+// will call the thunk with the `dispatch` function as the first argument. Async
+// code can then be executed and other actions can be dispatched
+export const fetchComodities = () => (dispatch) => {
+  return new Promise((resolve, reject) => {
+    dispatch(setLoading(true))
+    steinStore.read('list')
+      .then(res => {
+        const data = res;
+        dispatch(comoditiesFetch(data))
+        dispatch(setLoading(false))
+        resolve(data)
+      })
+      .catch(err => {
+        dispatch(setLoading(false))
+        console.error("Error: ", err)
+        reject(err)
+      })
+  })
 }
 
 export function addComodity(comodity) {
@@ -147,6 +136,6 @@ export function deleteComodity(comodity) {
   }
 }
 
-// action types
-export const COMODITIES_FETCH = "comodities/comoditiesFetch";
-export const SET_LOADING = "comodities/setLoading";
+export const { comoditiesFetch, setLoading } = komoditasSlice.actions
+
+export default komoditasSlice.reducer

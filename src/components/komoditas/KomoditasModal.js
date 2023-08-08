@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
-import { addComodity, editComodity, getLoading, getComodities } from "../../store/komoditas";
-import { getAreas, fetchAreas } from "../../store/area";
-import { getSizes, fetchSizes } from "../../store/size";
+import { addComodity, editComodity, getLoading, getComodities } from '../../store/features/komoditas/komoditasSlice'
+import { getAreas, fetchAreas } from "../../store/features/area/areaSlice";
+import { getSizes, fetchSizes } from "../../store/features/size/sizeSlice";
 import { Modal, Input, InputNumber, Select,  Button} from "antd";
 
 const sortArea = (a, b) => {
