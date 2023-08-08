@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { titleChanged } from '../../store/header';
+// import { titleChanged } from '../../store/header';
 import { getUsers, getLoading, fetchUsers } from '../../store/user';
 import moment from "moment";
 import { Button, Table, Space, Input } from "antd";
@@ -101,7 +101,7 @@ function User () {
   ];
 
   useEffect(() => {
-    dispatch(titleChanged("User"));
+    // dispatch(titleChanged("User"));
     dispatch(fetchUsers());
   }, [dispatch]);
 

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useLocation } from 'react-router-dom';
-import { getTitle } from "../../store/header";
+// import { getTitle } from "../../store/header";
+import { getTitle } from '../../store/features/header/headerSlice';
 import avatar from "../../assets/images/header/avatar.png";
 import { ExportOutlined } from '@ant-design/icons';
 import "./header.scss";
@@ -44,7 +45,6 @@ function Header() {
   const handleLogoutClick = (event) => {
     setShowLogout(false);
     localStorage.removeItem('accessToken')
-    // navigate('/login')
 
     // set the last page (location) path before logout
     navigate('/login', { replace: true, state: { from: location }});

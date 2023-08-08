@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Button, Table, Input, Dropdown, Menu, Space } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
-import { titleChanged } from "../../store/header";
-import { getComodities, getLoading, fetchComodities} from "../../store/komoditas";
+import { titleChanged } from '../../store/features/header/headerSlice';
+import { getComodities, getLoading, fetchComodities } from '../../store/features/komoditas/komoditasSlice'
 import KomoditasModal from "./KomoditasModal";
 import DeleteComodity from "./DeleteComodity";
 import { formattedCurrency } from "../../helper/numberFunctions";
@@ -210,7 +210,7 @@ function Komoditas() {
       filtered = comodities.filter(item => item.uuid);
     }
     const comoditiesData = filtered.map(comodity => {
-      const tmp = comodity;
+      const tmp = {...comodity};
       tmp.formatedPrice = formatCurrency(comodity.price).replace(/[$]/g, '');
       return tmp;
     });

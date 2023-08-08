@@ -1,6 +1,6 @@
 import { Modal, Button} from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteComodity, getLoading } from "../../store/komoditas";
+import { deleteComodity, getLoading } from "../../store/features/komoditas/komoditasSlice";
 
 function DeleteComodity({ title, modalOpen, setDeleteOpen, currentComodity }) {
   const loading = useSelector(getLoading);
