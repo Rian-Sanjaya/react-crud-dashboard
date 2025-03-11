@@ -1,5 +1,6 @@
 // import { eFisherySteinStore } from "../api/api-method";
-import { steinStore } from "../api/api-method";
+// import { steinStore } from "../api/api-method";
+import { commoditiesStore } from "../api/api-method";
 
 const initialState = {
   areas: [],
@@ -42,7 +43,7 @@ export function fetchAreas() {
   return (dispatch) => {
     return new Promise((resolve, reject) => {
       dispatch(setLoading(true));
-      steinStore.read("option_area")
+      commoditiesStore.read("option_area")
         .then(res => {
           const data = res;
           dispatch(areasFetch(data));
