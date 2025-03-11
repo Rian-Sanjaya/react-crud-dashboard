@@ -1,4 +1,5 @@
-import { steinStore } from "../api/api-method";
+// import { steinStore } from "../api/api-method";
+import { commoditiesStore } from "../api/api-method";
 
 const initialState = {
   comodities: [],
@@ -41,7 +42,7 @@ export function fetchComodities() {
   return (dispatch) => {
     return new Promise((resolve, reject) => {
       dispatch(setLoading(true));
-      steinStore.read("list")
+      commoditiesStore.read("list")
         .then(res => {
           const data = res;
           dispatch(comoditiesFetch(data));
@@ -61,7 +62,7 @@ export function addComodity(comodity) {
   return (dispatch) => {
     return new Promise((resolve, reject) => {
       dispatch(setLoading(true));
-      steinStore.append("list", comodity)
+      commoditiesStore.append("list", comodity)
         .then(() => {
           dispatch(fetchComodities())
             .then(res => {
@@ -87,7 +88,7 @@ export function editComodity(comodity) {
   return (dispatch) => {
     return new Promise((resolve, reject) => {
       dispatch(setLoading(true));
-      steinStore.edit("list", {
+      commoditiesStore.edit("list", {
         search: { uuid: comodity.uuid },
         set: {
           komoditas: comodity.komoditas,
@@ -123,7 +124,7 @@ export function deleteComodity(comodity) {
   return (dispatch) => {
     return new Promise((resolve, reject) => {
       dispatch(setLoading(true));
-      steinStore.delete("list", {
+      commoditiesStore.delete("list", {
         search: { uuid: comodity.uuid },
       })
         .then(() => {

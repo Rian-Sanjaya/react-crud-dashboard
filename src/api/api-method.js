@@ -7,3 +7,7 @@ export const steinStore = new SteinStore(
 export const userStore = new SteinStore(
   "https://api.steinhq.com/v1/storages/64859c50d27cdd09f0fa02f6"
 );
+
+export const commoditiesStore = new SteinStore(
+  "https://api.steinhq.com/v1/storages/67cfecfdc088333365804578"
+);
